@@ -1,7 +1,12 @@
-#include <iostream>
+#include "bits/stdc++.h"
+#include "bits/Timer.h"
+
+#include "Mutexes.h"
+#include "WithoutMutex.h"
 
 int main()
 {
-  std::cout << "Hello, World!" << std::endl;
-  return 0;
+  Mutexes mtx;
+  WithoutMutex nomtx;
+  std::cin.get();
 }
