@@ -1,0 +1,3 @@
+/Users/naisheel/CLionProjects/several-systems-projects/MultithreadingConcepts/cmake-build-debug/CMakeFiles/MultithreadingConcepts.dir
+/Users/naisheel/CLionProjects/several-systems-projects/MultithreadingConcepts/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/naisheel/CLionProjects/several-systems-projects/MultithreadingConcepts/cmake-build-debug/CMakeFiles/rebuild_cache.dir
