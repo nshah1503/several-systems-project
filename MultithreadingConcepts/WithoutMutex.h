@@ -13,12 +13,14 @@
 
 class WithoutMutex {
 private:
-  static void ProcessDataset(const std::array<int, DATA_SIZE>& arr, int& sum);
-  static void Run();
+  static void ProcessDataset(span<int> arr, int& sum);
+  static std::vector<std::array<int, DATA_SIZE>> GenerateDataset();
+  static void Run(std::vector<std::array<int, DATA_SIZE>>& datasets);
 public:
   WithoutMutex()
   {
-    Run();
+    auto dataset = GenerateDataset();
+    Run(dataset);
   }
 };
 

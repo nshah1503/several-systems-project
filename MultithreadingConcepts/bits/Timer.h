@@ -10,9 +10,10 @@
 struct Timer {
   std::chrono::time_point<std::chrono::high_resolution_clock> start, end;
   std::chrono::duration<float> duration;
-
-  Timer()
+  std::string processName;
+  Timer(const std::string& process)
   {
+    processName = process;
     start = std::chrono::high_resolution_clock::now();
   }
   ~Timer()
@@ -20,7 +21,8 @@ struct Timer {
     end = std::chrono::high_resolution_clock::now();
     duration = end-start;
     const float ms = duration.count()*100;
-    std::cout << "The process took: " << ms << std::endl;
+    std::cout << "Process name: " << processName << std::endl;
+    std::cout << "The process took: " << ms << "ms" << std::endl;
   }
 };
 

@@ -8,6 +8,6 @@
 
 #include <cstddef>
 
-inline constexpr size_t DATA_SIZE = 5000000;
+inline constexpr size_t DATA_SIZE = 50'000'000;
 
 #endif //CONFIG_H

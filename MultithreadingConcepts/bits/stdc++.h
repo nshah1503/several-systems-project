@@ -116,6 +116,7 @@
   #include <type_traits>
   #include <unordered_map>
   #include <unordered_set>
+  #include <span>
   #endif
 
 // Also writing "using namespace std;" here so that you dont need to write it everytime you start a cpp file

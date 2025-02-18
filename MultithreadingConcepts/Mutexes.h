@@ -7,10 +7,8 @@
 #include "bits/stdc++.h"
 #include "bits/Timer.h"
 #include "config.h"
-// extern constexpr size_t DATA_SIZE = 5000000;
 
 class Mutexes {
-private:
   static void ProcessDataset(const std::array<int, DATA_SIZE>& arr, int& sum, std::mutex& mtx);
   static void Run();
 public:

@@ -4,7 +4,7 @@
 
 #include "WithoutMutex.h"
 
-void WithoutMutex::ProcessDataset(const std::array<int, DATA_SIZE>& arr, int& sum)
+void WithoutMutex::ProcessDataset(const span<int> arr, int& sum)
 {
   for (const auto x: arr)
   {
@@ -14,17 +14,22 @@ void WithoutMutex::ProcessDataset(const std::array<int, DATA_SIZE>& arr, int& su
   }
 }
 
-void WithoutMutex::Run()
+std::vector<std::array<int, DATA_SIZE>> WithoutMutex::GenerateDataset()
 {
-  Timer T;
+  Timer T("Generating Dataset");
   std::minstd_rand rne; // check out LCG- linear congruential engine algorithm
   std::vector<std::array<int, DATA_SIZE>> datasets{4};
-  std::vector<std::thread> workers;
-
   for (auto& arr: datasets)
   {
     std::ranges::generate(arr, rne);
   }
+  return datasets;
+}
+
+void WithoutMutex::Run(std::vector<std::array<int, DATA_SIZE>>& datasets)
+{
+  Timer T("All processes without mutex");
+  std::vector<std::thread> workers;
   struct value
   {
     int v;
@@ -33,7 +38,7 @@ void WithoutMutex::Run()
   std::array<value, 4>sum = {0,0,0,0};
   for(size_t i = 0; i < 4; ++i)
   {
-    workers.push_back(std::thread{ ProcessDataset, std::ref(datasets[i]), std::ref(sum[i].v) });
+    workers.push_back(std::thread{ ProcessDataset, std::span{ datasets[i] }, std::ref(sum[i].v) });
   }
 
   for (auto& worker: workers)

@@ -20,7 +20,7 @@ void Mutexes::ProcessDataset(const std::array<int, DATA_SIZE>& arr, int& sum, st
 
 void Mutexes::Run()
 {
-  Timer T;
+  Timer T("All processes with mutexes");
   std::minstd_rand rne; // check out LCG- linear congruential engine algorithm
   std::vector<std::array<int, DATA_SIZE>> datasets{4};
   std::vector<std::thread> workers;
