@@ -168,7 +168,3 @@ ctest --output-on-failure
 # Run specific test
 ctest -R HyperLogLog_Tests
 ```
-
-## License
-
-This project is provided as-is for educational and research purposes. 
